@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import {List, Map, OrderedMap} from 'immutable';
+import {Map} from 'immutable';
 
 class App extends Component {
   render() {
+    
 
-
+    // console.log(modifiedHero.getIn())
 
     return (
       <Provider store={store}>
