@@ -1,20 +1,20 @@
 import React from "react";
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import { useSpring, animated } from 'react-spring';
 
 export default function Hero({ hero, heroClicked }) {
-
-  let collapsed = hero.get('collapsed');
-
   const HeroContainer = styled.div`
   `;
 
   const HeroBody = styled.div`
-    display: ${collapsed ? 'none' : 'block'}
-  `
+    display: ${hero.get('collapsed') ? 'none' : 'block'}
+  `;
 
   const HeroTitle = styled.p`
     cursor: pointer;
-  `
+  `;
+
+  console.log(useSpring)
 
   return (
     <HeroContainer className="box">
@@ -29,7 +29,7 @@ export default function Hero({ hero, heroClicked }) {
           </HeroTitle>
         </div>
         <div className="level-right">
-          <button>Remove</button>
+          <button className="button">Remove</button>
         </div>
       </div>
 
