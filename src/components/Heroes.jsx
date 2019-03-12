@@ -1,22 +1,44 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { toggleCollapsedHero } from "../actions/action";
+import { getRandomColor } from "../lib";
 import Hero from "./Hero";
+import styled from "@emotion/styled";
 
 class Heroes extends Component {
+  state = {
+    headerColor: "#000",
+  };
+
   render() {
-    const { heroes } = this.props;
+    const { heroes, toggleCollapsedHero } = this.props;
+
+    const HeroesHeader = styled.div`
+      cursor: pointer;
+      color: ${this.state.headerColor};
+    `;
+
+    const heroClicked = heroArg => {
+      let id = heroArg.get("id");
+      toggleCollapsedHero(id);
+    };
 
     const renderHeroes = heroes.map(hero => (
-      <Hero 
-        hero={hero} 
-        key={hero.get("id")} />
+      <Hero
+        heroClicked={() => heroClicked(hero)}
+        hero={hero}
+        key={hero.get("id")}
+      />
     ));
 
     return (
-      <div className="column is-6 is-offset-3 box">
-        <div className="is-size-3 has-text-weight-semibold has-text-centered">
+      <div className="column is-10 is-offset-1 box">
+        <HeroesHeader
+          onClick={() => this.setState({ headerColor: getRandomColor() })}
+          className="is-size-3 has-text-weight-semibold has-text-centered"
+        >
           Heroes
-        </div>
+        </HeroesHeader>
         {renderHeroes}
       </div>
     );
@@ -25,13 +47,13 @@ class Heroes extends Component {
 
 function mapStateToProps(state) {
   return {
-    heroes: state.heroes.get("heroes")
+    heroes: state.heroes,
   };
 }
 
-function mapDispatchToProps(state) {
+function mapDispatchToProps(dispatch) {
   return {
-    name: "no actions here yet"
+    toggleCollapsedHero: id => dispatch(toggleCollapsedHero(id))
   };
 }
 
