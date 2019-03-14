@@ -1,19 +1,11 @@
 ### Fontawesome
 - https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons
 ```
-- <i class="**fas fa-igloo fa-xs**"></i>
-```
-```
-- <i class="**fas fa-igloo fa-sm**"></i>
-```
-```
-- <i class="**fas fa-igloo fa-lg**"></i>
-```
-```
-- <i class="**fas fa-igloo fa-2x**"></i>
-```
-```
-- <i class="**fas fa-igloo fa-10x**"></i>
+<i class="**fas fa-igloo fa-xs**"></i>
+<i class="**fas fa-igloo fa-sm**"></i>
+<i class="**fas fa-igloo fa-lg**"></i>
+<i class="**fas fa-igloo fa-2x**"></i>
+<i class="**fas fa-igloo fa-10x**"></i>
 ```
 
 ### Animation

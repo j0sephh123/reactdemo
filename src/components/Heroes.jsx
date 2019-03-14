@@ -23,13 +23,19 @@ class Heroes extends Component {
       toggleCollapsedHero(id);
     };
 
+    // up and down
+    const carret = `fas fa-2x fa-caret-down`;
+
     const renderHeroes = heroes.map(hero => (
       <Hero
+        carret={carret}
         heroClicked={() => heroClicked(hero)}
         hero={hero}
         key={hero.get("id")}
       />
     ));
+
+    
 
     return (
       <div className="column is-10 is-offset-1 box">
