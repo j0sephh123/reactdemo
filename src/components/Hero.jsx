@@ -11,8 +11,8 @@ export default function Hero({ hero, heroClicked }) {
 
   const HeroTitle = styled.p`
     cursor: pointer;
+    margin-left: 0.6rem;
   `;
-
 
   return (
     <HeroContainer className="box">
@@ -21,8 +21,10 @@ export default function Hero({ hero, heroClicked }) {
         className="level">
         <div 
           className="level-left">
-          <HeroTitle 
+          <i 
             onClick={heroClicked}
+            className="fas fa-caret-down fa-2x"></i>
+          <HeroTitle 
             className="title">Hero: {hero.get("name")}
           </HeroTitle>
         </div>
