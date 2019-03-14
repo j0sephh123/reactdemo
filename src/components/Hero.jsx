@@ -1,6 +1,5 @@
 import React from "react";
 import styled from '@emotion/styled';
-import { useSpring, animated } from 'react-spring';
 
 export default function Hero({ hero, heroClicked }) {
   const HeroContainer = styled.div`
@@ -14,7 +13,6 @@ export default function Hero({ hero, heroClicked }) {
     cursor: pointer;
   `;
 
-  console.log(useSpring)
 
   return (
     <HeroContainer className="box">
