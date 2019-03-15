@@ -1,7 +1,7 @@
 import React from "react";
 import styled from '@emotion/styled';
 
-export default function Hero({ hero, heroClicked, carret }) {
+export default function Hero({ hero, collapseHero, removeHero, carret }) {
   const HeroContainer = styled.div`
   `;
 
@@ -26,7 +26,7 @@ export default function Hero({ hero, heroClicked, carret }) {
         <div 
           className='level-left'>
           <CarretDown 
-            onClick={heroClicked}
+            onClick={collapseHero}
             className={'fas fa-2x fa-caret-' + carret}>
           </CarretDown>
           <HeroTitle 
@@ -34,7 +34,9 @@ export default function Hero({ hero, heroClicked, carret }) {
           </HeroTitle>
         </div>
         <div className="level-right">
-          <button className="button">Remove</button>
+          <button
+            onClick={removeHero} 
+            className="button">Remove</button>
         </div>
       </div>
 

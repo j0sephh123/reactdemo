@@ -1,9 +1,7 @@
+import { Map, List } from 'immutable'
 import {
-  Map,
-  List
-} from 'immutable'
-import {
-  TOGGLE_COLLAPSED_HERO
+  TOGGLE_COLLAPSED_HERO,
+  REMOVE_HERO,
 } from '../actions/action'
 
 const heroes = List([
@@ -93,6 +91,8 @@ export default function (state = heroes, action) {
         }
         return item;
       });
+    case REMOVE_HERO: 
+      return state.filter(item => item.get('id') !== action.payload )
     default:
       return state;
   }

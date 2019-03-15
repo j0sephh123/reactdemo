@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toggleCollapsedHero } from "../actions/action";
+import { toggleCollapsedHero, removeHero } from "../actions/action";
 import { getRandomColor } from "../lib";
 import Hero from "./Hero";
 import styled from "@emotion/styled";
@@ -11,25 +11,32 @@ class Heroes extends Component {
   };
 
   render() {
-    const { heroes, toggleCollapsedHero } = this.props;
+    const { heroes, toggleCollapsedHero, removeHero } = this.props;
 
     const HeroesHeader = styled.div`
       cursor: pointer;
       color: ${this.state.headerColor};
     `;
 
-    const heroClicked = heroArg => {
+    const collapseHero = heroArg => {
       let id = heroArg.get("id");
       toggleCollapsedHero(id);
     };
 
+    // const removeHero = heroArg => {
+    //   let id = heroArg.get("id");
+    //   // console.log();
+    //   console.log('remove hero', id)
+    // }
+
     const renderHeroes = heroes.map(hero => {
       return (
         <Hero
-          carret={hero.get('collapsed') ? 'down' : 'up'}
-          heroClicked={() => heroClicked(hero)}
-          hero={hero}
           key={hero.get("id")}
+          hero={hero}
+          collapseHero={() => collapseHero(hero)}
+          removeHero={() => removeHero(hero.get("id"))}
+          carret={hero.get('collapsed') ? 'down' : 'up'}
         />
       )
     });
@@ -57,8 +64,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+  
+  
+
   return {
-    toggleCollapsedHero: id => dispatch(toggleCollapsedHero(id))
+    toggleCollapsedHero: id => dispatch(toggleCollapsedHero(id)),
+    removeHero: id => dispatch(removeHero(id)),
   };
 }
 
