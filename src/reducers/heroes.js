@@ -105,6 +105,7 @@ export default function (state = heroes, action) {
           return item;
         });
       }
+      break;
     default:
       return state;
   }

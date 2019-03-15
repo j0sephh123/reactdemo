@@ -1,6 +1,8 @@
 export const TOGGLE_COLLAPSED_HERO = 'TOGGLE_COLLAPSED_HERO';
 export const REMOVE_HERO = 'REMOVE_HERO';
 export const UPDATE_HERO = 'UPDATE_HERO';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 // export const getItems = () => {
 //   return {
@@ -26,7 +28,7 @@ export function removeHero(id) {
   }
 }
 
-export function updateHero({id, updateType, newValue}) {
+function updateHero({id, updateType, newValue}) {
   return {
     type: UPDATE_HERO,
     payload: {
@@ -37,5 +39,31 @@ export function updateHero({id, updateType, newValue}) {
   }
 }
 
+function toggleModal({active, type, id, oldValues, newValues}) {
+  return {
+    type: TOGGLE_MODAL,
+    payload: {
+      active,
+      type,
+      id,
+      oldValues,
+      newValues,
+    }
+  }
+}
 
+export function closeModal() {
+  return {
+    type: CLOSE_MODAL,
+  }
+}
 
+// dispatchers
+
+// dispatches updateHero and toggleModal
+export function updateHeroDispatcher({id, updateType, newValue}) {
+  return dispatch => {
+    dispatch(updateHero({id, updateType, newValue}));
+    return dispatch(toggleModal({active: true}));
+  }
+}

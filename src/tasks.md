@@ -1,1 +1,3 @@
-delete
+delete - y
+update - partially
+toggle modal - 
