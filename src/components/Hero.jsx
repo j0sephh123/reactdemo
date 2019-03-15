@@ -16,7 +16,7 @@ export default function Hero({ hero, heroClicked, carret }) {
 
   const CarretDown = styled.i`
     cursor: pointer;
-  `
+  `;
 
   return (
     <HeroContainer className="box">
@@ -27,7 +27,7 @@ export default function Hero({ hero, heroClicked, carret }) {
           className='level-left'>
           <CarretDown 
             onClick={heroClicked}
-            className={carret}>
+            className={'fas fa-2x fa-caret-' + carret}>
           </CarretDown>
           <HeroTitle 
             className="title">Hero: {hero.get("name")}
