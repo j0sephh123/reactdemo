@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toggleCollapsedHero, removeHero } from "../actions/action";
+import { toggleCollapsedHero, removeHero, updateHero } from "../actions/action";
 import { getRandomColor } from "../lib";
 import Hero from "./Hero";
 import styled from "@emotion/styled";
@@ -11,7 +11,7 @@ class Heroes extends Component {
   };
 
   render() {
-    const { heroes, toggleCollapsedHero, removeHero } = this.props;
+    const { heroes, toggleCollapsedHero, removeHero, updateHero } = this.props;
 
     const HeroesHeader = styled.div`
       cursor: pointer;
@@ -36,6 +36,11 @@ class Heroes extends Component {
           hero={hero}
           collapseHero={() => collapseHero(hero)}
           removeHero={() => removeHero(hero.get("id"))}
+          updateHero={() => updateHero({
+            id: hero.get('id'),
+            updateType: 'update_name',
+            newValue: 'hello',
+          })}
           carret={hero.get('collapsed') ? 'down' : 'up'}
         />
       )
@@ -70,6 +75,7 @@ function mapDispatchToProps(dispatch) {
   return {
     toggleCollapsedHero: id => dispatch(toggleCollapsedHero(id)),
     removeHero: id => dispatch(removeHero(id)),
+    updateHero: arg => dispatch(updateHero(arg)),
   };
 }
 

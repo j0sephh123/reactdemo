@@ -2,6 +2,7 @@ import { Map, List } from 'immutable'
 import {
   TOGGLE_COLLAPSED_HERO,
   REMOVE_HERO,
+  UPDATE_HERO,
 } from '../actions/action'
 
 const heroes = List([
@@ -92,7 +93,18 @@ export default function (state = heroes, action) {
         return item;
       });
     case REMOVE_HERO: 
-      return state.filter(item => item.get('id') !== action.payload )
+      return state.filter(item => item.get('id') !== action.payload);
+    case UPDATE_HERO:
+      const { id, updateType, newValue } = action.payload
+
+      if(updateType === 'update_name') {
+        return state.map(item => {
+          if (item.get('id') === id) {
+            return item.set('name', newValue);
+          }
+          return item;
+        });
+      }
     default:
       return state;
   }

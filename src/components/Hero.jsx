@@ -1,7 +1,7 @@
 import React from "react";
 import styled from '@emotion/styled';
 
-export default function Hero({ hero, collapseHero, removeHero, carret }) {
+export default function Hero({ hero, collapseHero, removeHero, updateHero, carret }) {
   const HeroContainer = styled.div`
   `;
 
@@ -35,8 +35,13 @@ export default function Hero({ hero, collapseHero, removeHero, carret }) {
         </div>
         <div className="level-right">
           <button
+            onClick={updateHero} 
+            className="button">Update
+          </button>
+          <button
             onClick={removeHero} 
-            className="button">Remove</button>
+            className="button">Remove
+          </button>
         </div>
       </div>
 
