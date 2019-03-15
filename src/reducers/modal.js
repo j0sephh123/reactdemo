@@ -15,7 +15,7 @@ const initialModal = Map({
 export default function (state = initialModal, action) {
   switch (action.type) {
     case TOGGLE_MODAL: 
-      console.log(action.payload)
+      //console.log(action.payload)
       return initialModal
         .set('active', true)
         .set('hero', action.payload.hero)

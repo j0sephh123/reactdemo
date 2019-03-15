@@ -6,23 +6,17 @@ import { closeModal, updateHero } from '../actions/actions';
 
 
 class Modal extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      hero: null,
-    }
+  state = {
+    hero: null,
   }
 
   
 
-
   render() {
-
     const { modal, closeModal, updateHero } = this.props;
     const display = modal.get('active') ? 'block' : 'none';
-    
-    console.log(modal.get('hero'))
 
+    const hero = (modal.get('hero') !== null ? modal.get('hero') : null)
     
 
     /* The Modal (background) */
@@ -68,8 +62,7 @@ class Modal extends Component {
       <Modal>
         <ModalContent>
           <OldValues>
-            nothing here
-            {/* Old value: {null && hero.get('name')} */}
+            Old value: {null && hero.get('name')}
           </OldValues>
           <FormContent>
             <div className="field has-addons">
