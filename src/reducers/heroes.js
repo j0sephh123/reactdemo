@@ -3,13 +3,13 @@ import {
   TOGGLE_COLLAPSED_HERO,
   REMOVE_HERO,
   UPDATE_HERO,
-} from '../actions/action'
+} from '../actions/actions'
 
 const heroes = List([
   Map({
     id: 1,
     name: 'lina',
-    type: 'int',
+    attribute: 'int',
     collapsed: true,
     games: List([
       Map({
@@ -32,7 +32,7 @@ const heroes = List([
   Map({
     id: 2,
     name: 'panda',
-    type: 'str',
+    attribute: 'str',
     collapsed: true,
     games: List([
       Map({
@@ -55,7 +55,7 @@ const heroes = List([
   Map({
     id: 3,
     name: 'riki',
-    type: 'agi',
+    attribute: 'agi',
     collapsed: true,
     games: List([
       Map({
@@ -95,17 +95,21 @@ export default function (state = heroes, action) {
     case REMOVE_HERO: 
       return state.filter(item => item.get('id') !== action.payload);
     case UPDATE_HERO:
-      const { id, updateType, newValue } = action.payload
+      // const { id, updateType } = action.payload;
+      console.log('update hero reducer', action.payload)
+      // if(updateType === 'update_name') {
+        
+      //   return state.map(item => {
+      //     if (item.get('id') === id) {
+      //       return item.set('name', newValue);
+      //     }
+      //     return item;
+      //   });
+      // }
+      return state;
+      //return state.set('id', id).set('updateType', updateType);
 
-      if(updateType === 'update_name') {
-        return state.map(item => {
-          if (item.get('id') === id) {
-            return item.set('name', newValue);
-          }
-          return item;
-        });
-      }
-      break;
+      // break;
     default:
       return state;
   }

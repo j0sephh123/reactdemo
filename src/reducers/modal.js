@@ -2,12 +2,12 @@ import { Map, List } from 'immutable'
 import {
   TOGGLE_MODAL,
   CLOSE_MODAL,
-} from '../actions/action'
+} from '../actions/actions'
 
 const initialModal = Map({
   active: false,
-  type: null,
-  id: null,
+  updateType: null,
+  hero: null,
   oldValues: List(),
   newValues: List(),
 })
@@ -15,7 +15,11 @@ const initialModal = Map({
 export default function (state = initialModal, action) {
   switch (action.type) {
     case TOGGLE_MODAL: 
-      return initialModal.set('active', true);
+      console.log(action.payload)
+      return initialModal
+        .set('active', true)
+        .set('hero', action.payload.hero)
+        .set('updateType', action.payload.updateType);
     case CLOSE_MODAL:
       return initialModal;
     default:

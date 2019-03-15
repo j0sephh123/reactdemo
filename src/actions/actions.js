@@ -28,7 +28,7 @@ export function removeHero(id) {
   }
 }
 
-function updateHero({id, updateType, newValue}) {
+export function updateHero({id, updateType, newValue}) {
   return {
     type: UPDATE_HERO,
     payload: {
@@ -39,13 +39,13 @@ function updateHero({id, updateType, newValue}) {
   }
 }
 
-function toggleModal({active, type, id, oldValues, newValues}) {
+export function toggleModal({active, updateType, hero, oldValues, newValues}) {
   return {
     type: TOGGLE_MODAL,
     payload: {
       active,
-      type,
-      id,
+      updateType,
+      hero,
       oldValues,
       newValues,
     }
@@ -61,9 +61,13 @@ export function closeModal() {
 // dispatchers
 
 // dispatches updateHero and toggleModal
-export function updateHeroDispatcher({id, updateType, newValue}) {
+export function updateHeroDispatcher({id, updateType}) {
   return dispatch => {
-    dispatch(updateHero({id, updateType, newValue}));
-    return dispatch(toggleModal({active: true}));
+    //dispatch(updateHero({id, updateType, newValue}));
+    return dispatch(toggleModal({
+      active: true,
+      id,
+      updateType,
+    }));
   }
 }
