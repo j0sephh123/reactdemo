@@ -29,7 +29,7 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
             onClick={collapseHero}
             className={'fas fa-2x fa-caret-' + carret}>
           </CarretDown>
-          <HeroTitle 
+          <HeroTitle
             className="title">
             {hero.get("attribute") === 'str' ? <i className="fas fa-sm fa-fist-raised"></i> : null}
             {hero.get("attribute") === 'agi' ? <i className="fas fa-sm fa-dragon"></i> : null}
@@ -40,7 +40,7 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
         <div className="level-right">
           <button
             onClick={toggleModal} 
-            className="button">Toggle Modal
+            className="button">Edit all values
           </button>
           <button
             onClick={removeHero} 
@@ -53,12 +53,12 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
         <HeroBody>
           <p>Games played:</p>
           <ul>
-            {hero.get("games").map(game => (
+            {hero.get("games").size !== 0 ? hero.get("games").map(game => (
               <li className="box" key={game.get("id")}>
                 <p>Status: {game.get("status")}</p>
                 <p>Comment: {game.get("comment")}</p>
               </li>
-            ))}
+            )) : 'no games with this hero'}
           </ul>
         </HeroBody>
 

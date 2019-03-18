@@ -1,11 +1,12 @@
 import React from "react";
 
-export default function Input({value, onChange}) {
+export default function Input({value, onChange, name}) {
   return (
     <div className="field">
+      <label className="label">{name}</label>
       <p className="control">
         <input
-          name="name"
+          name={name}
           className="input"
           type="text"
           value={value}

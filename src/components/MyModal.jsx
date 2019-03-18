@@ -63,19 +63,21 @@ class MyModal extends Component {
           style={customStyles}>
           {hero.get('name')}
           <OldValues>
-            <p>
+            <div>
               name: {hero.get('name')}
-            </p>
-            <p>
+            </div>
+            <div>
               attribute: {hero.get('attribute')}
-            </p>
+            </div>
           </OldValues>
           <div>
             <Input
+              name="name"
               onChange={this.onChange}
               value={this.state.name}
             />
             <Select 
+              name="attribute"
               onChange={this.onChange}
               value={this.state.attribute}
             />

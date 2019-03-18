@@ -3,6 +3,7 @@ export const REMOVE_HERO = 'REMOVE_HERO';
 export const UPDATE_HERO = 'UPDATE_HERO';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const ADD_HERO = 'ADD_HERO';
 
 // export const getItems = () => {
 //   return {
@@ -55,6 +56,15 @@ export function toggleModal({active, updateType, hero, oldValues, newValues}) {
 export function closeModal() {
   return {
     type: CLOSE_MODAL,
+  }
+}
+
+export function addHero({name, attribute}) {
+  return {
+    type: ADD_HERO,
+    payload: {
+      name, attribute,
+    }
   }
 }
 
