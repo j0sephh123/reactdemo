@@ -8,7 +8,7 @@ import {
 import { getRandomColor } from "../lib";
 import Hero from "./Hero";
 import styled from "@emotion/styled";
-import Modal from "./Modal";
+import MyModal from './MyModal'
 
 class Heroes extends Component {
   state = {
@@ -46,7 +46,7 @@ class Heroes extends Component {
 
     return (
       <div className="column is-10 is-offset-1 box">
-        <Modal />
+        <MyModal />
         <HeroesHeader
           onClick={() => this.setState({ headerColor: getRandomColor() })}
           className="is-size-3 has-text-weight-semibold has-text-centered">

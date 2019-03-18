@@ -95,21 +95,21 @@ export default function (state = heroes, action) {
     case REMOVE_HERO: 
       return state.filter(item => item.get('id') !== action.payload);
     case UPDATE_HERO:
-      // const { id, updateType } = action.payload;
+      const { id, updateType, newValues } = action.payload;
       console.log('update hero reducer', action.payload)
-      // if(updateType === 'update_name') {
+      if(updateType === 'update_hero') {
         
-      //   return state.map(item => {
-      //     if (item.get('id') === id) {
-      //       return item.set('name', newValue);
-      //     }
-      //     return item;
-      //   });
-      // }
-      return state;
+        return state.map(item => {
+          if (item.get('id') === id) {
+            return item.set('name', newValues.name);
+          }
+          return item;
+        });
+      }
+      //return state;
       //return state.set('id', id).set('updateType', updateType);
 
-      // break;
+      break;
     default:
       return state;
   }

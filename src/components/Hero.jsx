@@ -30,7 +30,11 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
             className={'fas fa-2x fa-caret-' + carret}>
           </CarretDown>
           <HeroTitle 
-            className="title">Hero: {hero.get("name")}
+            className="title">
+            {hero.get("attribute") === 'str' ? <i className="fas fa-sm fa-fist-raised"></i> : null}
+            {hero.get("attribute") === 'agi' ? <i className="fas fa-sm fa-dragon"></i> : null}
+            {hero.get("attribute") === 'int' ? <i className="fas fa-sm fa-book"></i> : null}
+            Hero: {hero.get("name")}
           </HeroTitle>
         </div>
         <div className="level-right">
@@ -47,7 +51,6 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
 
       
         <HeroBody>
-          <p>Type: {hero.get("type")}</p>
           <p>Games played:</p>
           <ul>
             {hero.get("games").map(game => (
@@ -58,7 +61,7 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
             ))}
           </ul>
         </HeroBody>
-      {/* </ReactCSSTransitionGroup> */}
+
 
     </HeroContainer>
   );

@@ -28,13 +28,13 @@ export function removeHero(id) {
   }
 }
 
-export function updateHero({id, updateType, newValue}) {
+export function updateHero({id, updateType, newValues}) {
   return {
     type: UPDATE_HERO,
     payload: {
       id,
       updateType,
-      newValue,
+      newValues,
     }
   }
 }
