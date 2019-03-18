@@ -101,11 +101,16 @@ export default function (state = heroes, action) {
         
         return state.map(item => {
           if (item.get('id') === id) {
-            return item.set('name', newValues.name);
+            return (
+              item.set('name', newValues.name),
+              item.set('attribute', newValues.attribute)
+            )
           }
           return item;
         });
       }
+
+      
       //return state;
       //return state.set('id', id).set('updateType', updateType);
 

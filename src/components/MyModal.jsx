@@ -29,7 +29,7 @@ Modal.setAppElement('#root')
 class MyModal extends Component {
   state = {
     name: "",
-    attribute: "",
+    attribute: "str",
   };
 
   onChange = e => {
@@ -38,7 +38,6 @@ class MyModal extends Component {
   };
 
   updateHeroHandler = () => {
-    console.log(this.state.name, this.state.attribute)
     this.props.updateHero({
       id: 1,
       updateType: 'update_hero',
@@ -47,6 +46,7 @@ class MyModal extends Component {
         attribute: this.state.attribute
       },
     })
+    this.props.closeModal()
   }
 
   
