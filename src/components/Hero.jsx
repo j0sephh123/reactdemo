@@ -49,20 +49,17 @@ export default function Hero({ hero, collapseHero, removeHero, toggleModal, carr
         </div>
       </div>
 
-      
-        <HeroBody>
-          <p>Games played:</p>
-          <ul>
-            {hero.get("games").size !== 0 ? hero.get("games").map(game => (
-              <li className="box" key={game.get("id")}>
-                <p>Status: {game.get("status")}</p>
-                <p>Comment: {game.get("comment")}</p>
-              </li>
-            )) : 'no games with this hero'}
-          </ul>
-        </HeroBody>
-
-
+      <HeroBody>
+        <p>Games played:</p>
+        <ul>
+          {hero.get("games").size !== 0 ? hero.get("games").map(game => (
+            <li className="box" key={game.get("id")}>
+              <p>Status: {game.get("status")}</p>
+              <p>Comment: {game.get("comment")}</p>
+            </li>
+          )) : 'no games with this hero'}
+        </ul>
+      </HeroBody>
     </HeroContainer>
   );
 }

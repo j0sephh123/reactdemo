@@ -13,14 +13,13 @@ const OldValues = styled.div``;
 
 const customStyles = {
   content : {
-    top                   : '10%',
+    top                   : '30%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     width: '80%',
-    display: 'flex',
   }
 };
 
@@ -61,15 +60,7 @@ class MyModal extends Component {
           isOpen={modal.get('active') ? true : false}
           onRequestClose={closeModal}
           style={customStyles}>
-          {hero.get('name')}
-          <OldValues>
-            <div>
-              name: {hero.get('name')}
-            </div>
-            <div>
-              attribute: {hero.get('attribute')}
-            </div>
-          </OldValues>
+          <p className="title is-2">{hero.get('name')}</p>
           <div>
             <Input
               name="name"
