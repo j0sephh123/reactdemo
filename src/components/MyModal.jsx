@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import styled from "@emotion/styled";
 import { closeModal, updateHero } from "../actions/actions";
 import Modal from 'react-modal';
+import Input from '../elements/Input'
+import Select from '../elements/Select'
 
 const FormContent = styled.div``;
 
@@ -69,27 +71,14 @@ class MyModal extends Component {
             </p>
           </OldValues>
           <div>
-            <div className="field">
-              <p className="control">
-                <input 
-                  name="name"
-                  className="input" 
-                  type="text" 
-                  value={this.state.name}
-                  placeholder="name"
-                  onChange={this.onChange}
-                  />
-              </p>
-            </div>
-            <select
+            <Input
+              onChange={this.onChange}
+              value={this.state.name}
+            />
+            <Select 
+              onChange={this.onChange}
               value={this.state.attribute}
-              className="select"  
-              name="attribute"
-              onChange={this.onChange}>
-              <option value="str">Strength</option>
-              <option value="agi">Agility</option>
-              <option value="int">Intelligence</option>
-            </select>
+            />
           </div>
           <button 
             onClick={() => this.updateHeroHandler()} 
