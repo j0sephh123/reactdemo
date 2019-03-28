@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        
+        <h1>Some heading for testing deployment</h1>
         <AddHero />
         <Heroes />
       </Provider>
